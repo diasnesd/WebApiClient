@@ -14,17 +14,25 @@ namespace WebApiClient.Controllers
         [Route("~/api/items")]
         [HttpGet]
         public IHttpActionResult Get()
-        { 
+        {
             return Ok();
         }
 
         [Authorize]
         [Route("~/api/items-authorized")]
         [HttpGet]
-        public IHttpActionResult Get1()
+        public IHttpActionResult GetAuthorized()
         {
             var user = User.Identity.Name;
-            return Ok();
+            var model = new List<object> {
+                new {  id  = 1, value = "one" },
+                new {  id  = 2, value = "two" },
+                new {  id  = 3, value = "three" },
+                new {  id  = 4, value = "four" },
+                new {  id  = 5, value = "five" },
+                new {  id  = 6, value = "six" }
+            };
+            return Ok(model);
         }
 
     }

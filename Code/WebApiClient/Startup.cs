@@ -37,8 +37,8 @@ namespace WebApiClient
             app.UseIdentityServerBearerTokenAuthentication(new IdentityServer3.AccessTokenValidation.IdentityServerBearerTokenAuthenticationOptions
             {
                 Authority = baseUrl,
-                ClientId = "expedo_client",
-                //RequiredScopes = new[] { "postman_api" }
+                ClientId = "salesforce_client",
+                RequiredScopes = new[] { "openid", "profile", "postman_api" }
             });
 
             //app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
